@@ -1,1 +1,6 @@
 .vagrant/
+src/myflaskappenv/*
+*.pyc
+src/.*
+settings.json
+ubuntu*
