@@ -22,7 +22,7 @@ pip install --upgrade pip
 # Install Flask and other necessary packages inside the virtual environment
 pip install Flask gunicorn
 
-echo "export FLASK_APP=src/myflaskapp.py" >> /home/vagrant/.bashrc
+echo "export FLASK_APP=/home/vagrant/src/myflaskapp.py" >> /home/vagrant/.bashrc
 
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sudo systemctl restart ssh
