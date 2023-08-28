@@ -4,3 +4,4 @@ src/myflaskappenv/*
 src/.*
 settings.json
 ubuntu*
+debug.log
