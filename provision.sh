@@ -37,7 +37,7 @@ After=network.target
 [Service]
 User=vagrant
 Group=vagrant
-WorkingDirectory=/home/vagrant/src
+WorkingDirectory=/home/vagrant/src/
 Environment="PATH=/home/vagrant/myflaskappenv/bin"
 ExecStart=/home/vagrant/myflaskappenv/bin/gunicorn --workers 3 --bind unix:/tmp/myflaskapp.sock -m 007 myflaskapp:app
 #ExecStart=/home/vagrant/myflaskappenv/bin/gunicorn --workers 3 --bind unix:/home/vagrant/myflaskapp.sock -m 007 myflaskapp:app
