@@ -1,0 +1,32 @@
+#### 
+
+proxy_pass http://unix:/tmp/myflaskapp.sock;
+
+this is from my nginx config file. in this case what use from nginx is connecting to the socket myflaskapp.sock?
+what level of file access do the nginx user need to perform the action mentioned in the command above? read access or execution access?
+how to provide this required access to the myflaskapp.sock? provided this file is dynamic and will be recreated at a flask gunicorn reboot. so whatever way we give the access, it should be persistent even if the file get deleted and recreated with the same name
+
+######
+
+vagrant@ubuntu-bionic:~/src$ /home/vagrant/myflaskappenv/bin/gunicorn --workers 3 --bind unix:/var/www/myflaskapp.sock -m 007 myflaskapp:app
+[2023-09-01 10:09:46 +0000] [2662] [INFO] Starting gunicorn 21.2.0
+[2023-09-01 10:09:46 +0000] [2662] [ERROR] Retrying in 1 second.
+[2023-09-01 10:09:47 +0000] [2662] [ERROR] Retrying in 1 second.
+[2023-09-01 10:09:48 +0000] [2662] [ERROR] Retrying in 1 second.
+[2023-09-01 10:09:49 +0000] [2662] [ERROR] Retrying in 1 second.
+[2023-09-01 10:09:50 +0000] [2662] [ERROR] Retrying in 1 second.
+[2023-09-01 10:09:51 +0000] [2662] [ERROR] Can't connect to /var/www/myflaskapp.sock
+
+looks like a permission problem. what to do
+
+#####
+
+sudo chown vagrant:vagrant /var/www/
+
+i want the user to be generic. "whome ever installing the gunicorn". because i am using the vagrant its vagrant
+if i am not using vagrant as well i want this to work
+
+#### 
+
+i want to give the user www-data execution permission for the folder /var/www and any file inside the directory
+even if the file is created after applying the command, it should also have the permission
