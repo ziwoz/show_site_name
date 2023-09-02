@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "vaathi coming"
+sleep 5
+sudo chmod 007 /var/www/myflaskapp.sock
