@@ -4,6 +4,8 @@ default: chmod: cannot access '/tmp/myflaskapp.sock': No such file or directory
 
 /home/vagrant/myflaskappenv/bin/gunicorn --workers 3 --bind unix:/tmp/myflaskapp.sock -m 007 myflaskapp:app
 
+/home/vagrant/myflaskappenv/bin/gunicorn --workers 3 --bind unix:/var/www/myflaskapp.sock -m 007 myflaskapp:app
+
 ####
 
 restart nginx

@@ -1,0 +1,11 @@
+[Service]
+User=vagrant
+Group=vagrant
+WorkingDirectory=/home/vagrant/src/
+Environment="PATH=/home/vagrant/myflaskappenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStartPre=/home/vagrant/gunicorn/prescript.sh
+ExecStart=/home/vagrant/myflaskappenv/bin/gunicorn --workers 3 --bind unix:/var/www/myflaskapp.sock -m 007 myflaskapp:app
+ExecStartPost=/home/vagrant/gunicorn/postscript.sh
+
+[Install]
+WantedBy=multi-user.target
