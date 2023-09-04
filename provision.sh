@@ -5,8 +5,9 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 
+
 # Install necessary packages, including Python and pip
-sudo apt-get install -y python3 python3-pip python3-venv nginx
+sudo apt-get install -y python3 python3-pip python3-venv nginx dos2unix
 sudo unlink /etc/nginx/sites-enabled/default
 
 python3 -m venv /var/www/myflaskappenv
@@ -24,7 +25,9 @@ sudo systemctl restart ssh
 
 # Move the Gunicorn service file to the systemd service directory
 sudo cp /var/www/gunicorn/gunicorn.service /etc/systemd/system/
+sudo dos2unix /var/www/gunicorn/postscript.sh
 sudo chmod +x /var/www/gunicorn/postscript.sh
+sudo dos2unix /var/www/gunicorn/prescript.sh
 sudo chmod +x /var/www/gunicorn/prescript.sh
 
 # Start and enable Gunicorn service
