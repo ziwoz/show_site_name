@@ -24,6 +24,7 @@ sudo systemctl restart ssh
 
 
 # Move the Gunicorn service file to the systemd service directory
+# next move all the scripts to one directory and do this in style
 sudo cp /var/www/gunicorn/gunicorn.service /etc/systemd/system/
 sudo dos2unix /var/www/gunicorn/postscript.sh
 sudo chmod +x /var/www/gunicorn/postscript.sh

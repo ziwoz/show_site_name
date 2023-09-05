@@ -6,3 +6,4 @@ settings.json
 ubuntu*
 debug.log
 /myflaskappenv/*
+venv
