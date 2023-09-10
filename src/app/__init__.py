@@ -1,8 +1,8 @@
 from flask import Flask
 from .config import Config
 from .extensions import db, login_manager
-from .main import main as main_blueprint
-from .user import user as user_blueprint
+from .main import main_blueprint
+from .user import user_blueprint
 
 
 def create_app():

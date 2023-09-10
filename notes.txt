@@ -1,0 +1,1 @@
+tree -L 3 -I 'venv|bin|__pycache__'

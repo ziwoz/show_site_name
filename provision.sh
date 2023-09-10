@@ -14,11 +14,15 @@ python3 -m venv /var/www/myflaskappenv
 # Activate the virtual environment
 source /var/www/myflaskappenv/bin/activate
 
+
 # Upgrade pip (Python package installer) inside the virtual environment
 pip install --upgrade pip
+
 # Install Flask and other necessary packages inside the virtual environment
 pip install Flask gunicorn
 sudo cp -r /var/www/master_src /var/www/src
+pip install -r /var/www/src/requirements.txt
+
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sudo systemctl restart ssh
 

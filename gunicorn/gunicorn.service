@@ -4,7 +4,7 @@ Group=vagrant
 WorkingDirectory=/var/www/src/
 Environment="PATH=/var/www/myflaskappenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 ExecStartPre=/var/www/gunicorn/prescript.sh
-ExecStart=/var/www/myflaskappenv/bin/gunicorn --workers 3 --bind unix:/var/www/myflaskapp.sock -m 007 myflaskapp:app
+ExecStart=/var/www/myflaskappenv/bin/gunicorn --workers 3 --bind unix:/var/www/myflaskapp.sock -m 007 run:app
 ExecStartPost=/var/www/gunicorn/postscript.sh
 
 [Install]

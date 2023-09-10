@@ -1,8 +1,8 @@
 from flask import Blueprint
 
-user = Blueprint("user", __name__)
+user_blueprint = Blueprint("user", __name__)
 
 
-@user.route("/login")
+@user_blueprint.route("/login")
 def login():
     return render_template("login.html")
