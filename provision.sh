@@ -36,6 +36,7 @@ sudo dos2unix /var/www/gunicorn/prescript.sh
 sudo chmod +x /var/www/gunicorn/prescript.sh
 
 # Start and enable Gunicorn service
+sudo systemctl daemon-reload
 sudo systemctl start gunicorn
 sudo systemctl enable gunicorn
 

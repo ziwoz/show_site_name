@@ -7,3 +7,4 @@ ubuntu*
 debug.log
 /myflaskappenv/*
 venv
+**/site.db
