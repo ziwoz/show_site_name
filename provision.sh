@@ -7,7 +7,7 @@ sudo apt-get upgrade -y
 
 
 # Install necessary packages, including Python and pip
-sudo apt-get install -y python3 python3-pip python3-venv nginx dos2unix
+sudo apt-get install -y python3 python3-pip python3-venv nginx dos2unix sqlite3
 sudo unlink /etc/nginx/sites-enabled/default
 
 python3 -m venv /var/www/myflaskappenv
